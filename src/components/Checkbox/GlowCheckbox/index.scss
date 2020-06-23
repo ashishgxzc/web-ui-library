@@ -1,0 +1,73 @@
+$bg-color: #18191F;
+$icon-color: #00F3FF;
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: $bg-color;
+    ul {
+        position: relative;
+        display: flex;
+        li {
+            list-style: none;
+            label {
+                position: relative;
+                input[type="checkbox"] {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    &:checked ~ .icon {
+                        box-shadow: inset 0px 0px 2px rgba(255,255,255, 0.05),
+                                    inset 4px 4px 6px rgba(0,0,0, 0.2); 
+                    }
+                    &:checked ~ .icon .fa {
+                        color: $icon-color;
+                        text-shadow: 0 0 15px $icon-color,
+                                     0 0 25px $icon-color;
+                        animation: animate 3s linear infinite;
+                        @keyframes animate {
+                            0%{
+                                filter: hue-rotate(0deg);
+                            }
+                            100%{
+                                filter: hue-rotate(360deg);
+                            }
+                        }                
+                    }
+                }
+                .icon {
+                    position: relative;
+                    width: 60px;
+                    height: 60px;
+                    background: $bg-color;
+                    color: #555555;
+                    font-size: 24px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    margin: 0px 10px;
+                    border-radius: hidden;
+                    overflow: hidden;
+                    box-shadow: -1px  -1px 4px rgba(255,255,255, 0.05),
+                                 4px   4px 6px rgba(0,0,0, 0.2),
+                                inset -1px -1px 4px rgba(255,255,255, 0.05),
+                                inset 1px 1px 1px rgba(0,0,0, 0.1);
+                    &before {
+                        content: '';
+                        position: absolute;
+                        top:2px;
+                        left: 2px;
+                        width: calc(100% - 5px);
+                        height: calc(50% - 2px);
+                        border-top-left-radius: 8px;
+                        border-top-right-radius: 8px;
+                        background: rgba(255,255,255,0.05);
+                    }            
+                }
+            }
+        }
+    }
+}
