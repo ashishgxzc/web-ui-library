@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import './index.scss';
 
 function Analog(props) {
-
+    const [mode, setMode] = useState('dark');
     useEffect(() => {
         const interval = setInterval(() => {
             const deg = 6;
@@ -24,16 +24,22 @@ function Analog(props) {
     }, []);
 
     return (
-        <div className="clock-container">
-            <div className="clock">
-                <div className="hour">
-                    <div className="hr" id="hr" />
-                </div>
-                <div className="min">
-                    <div className="mn" id="mn" />
-                </div>
-                <div className="sec">
-                    <div className="sc" id="sc" />
+        <div className="clock-wrapper">
+            <div className={`clock-container ${(mode === 'dark') ? 'light' : ''}`}>
+                <div className="switch-button" onClick={() => {
+                    const val = (mode === 'dark') ? 'light' : 'dark';
+                    setMode(val)
+                }} />
+                <div className="clock">
+                    <div className="hour">
+                        <div className="hr" id="hr" />
+                    </div>
+                    <div className="min">
+                        <div className="mn" id="mn" />
+                    </div>
+                    <div className="sec">
+                        <div className="sc" id="sc" />
+                    </div>
                 </div>
             </div>
         </div>
