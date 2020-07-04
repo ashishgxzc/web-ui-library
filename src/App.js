@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import componentJSON from './components';
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
               {
                 <div key={type.id}>
                   <h4>{type.name}</h4>
-                  <ol>
+                  <ul>
                     {
                       type.items.map((item) =>
                         <li key={item.id}>
@@ -20,7 +21,7 @@ function App() {
                         </li>
                       )
                     }
-                  </ol>
+                  </ul>
                 </div>
               }
             </ol>
